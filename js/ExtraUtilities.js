@@ -5,122 +5,115 @@ function initi2() {
 //for pages functionality start (additional array to enable pdf functionality added)
 var pages = [], pages_pdf = [],page_number=0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function new_page() {
   start_pencil();
-  if (pages.length == page_number || pages.length - 1 == page_number) {
-    pages[page_number] = cntx.getImageData(0, 0, canv.width, canv.height);
-    pages_pdf[page_number] = canv.toDataURL('image/jpeg', 1.0);
+  if (pages.length==page_number||pages.length-1==page_number) {
+    pages[page_number] = cntx.getImageData(0,0,canv.width,canv.height);
+    pages_pdf[page_number] = canv.toDataURL('image/jpeg',1.0);  //since pdf needs jpeg images
     page_number++;
     clear_page(cntx);
-  } else if (pages.length > page_number) {
-    pages[page_number] = cntx.getImageData(0, 0, canv.width, canv.height);
-    pages_pdf[page_number] = canv.toDataURL('image/jpeg', 1.0);
+  
+  }
+  else if(pages.length>page_number) {
+    pages[page_number] = cntx.getImageData(0,0,canv.width,canv.height);
+    pages_pdf[page_number] = canv.toDataURL('image/jpeg',1.0);  //since pdf needs jpeg images
     page_number++;
-    cntx.putImageData(pages[page_number], 0, 0);
-    if ((pages.length - 1) == page_number) {
-      document.getElementById('action5').innerHTML = "Add";
+    cntx.putImageData(pages[page_number],0,0);
+    if ((pages.length-1)==page_number) {
+      document.getElementById('action5').innerHTML="Add";
     }
-  } else {}
+    
+  }
+  else{}
 
-  if (page_number >0) {
-    document.getElementById('action6').disabled = false;
+  if(page_number>0){
+    document.getElementById('action6').disabled=false;
+	
   }
 
-  console.log(page_number);
-  console.log(pages.length);
 
-  // Get canvas and context
+
+
+
+
+
+
+
+// start my code from  here-----------------------------------------------------------------------------  
+
+  //console.log(page_number);
+  
+
+  console.log( "current page", page_number);
+ // console.log(pages.length);
+  
+  console.log( "total page", pages.length);
+  //document.getElementById("demo2").innerHTML = page_number;
   var canvas = document.getElementById("canvas1");
   var context = canvas.getContext("2d");
-
-  // Get the current page number and total page number
-  var currentPageNumber = page_number;
-  var totalPages = pages.length;
-
-  // Clear the canvas before drawing the text
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Set font style and color
-  context.font = "20px Arial";
+ 
+ // var page_number = pages.length;
+  var text = document.getElementById("demo2").innerHTML = page_number;
+context.font = "17px Arial";
   context.fillStyle = "black";
 
-  // Display current and total page numbers
-  context.fillText(currentPageNumber + "/" + totalPages, 1300, 30);
+//context.fillText(demo2.innerHTML, 1280, 30);
+  context.fillText(text, 1280, 30);
+  
+
+
+
+
+
+// End  my code from  here----------------------------------------------------------------------------- 
+  
 }
 
-// Rest of your code...
 
 
 
 function previous_page() {
-  // Automatically save the current page
-  pages[page_number] = cntx.getImageData(0, 0, canv.width, canv.height);
-  pages_pdf[page_number] = canv.toDataURL('image/jpeg', 1.0);
-
-  // Set up condition for first page error
-  if (page_number >= 1) {
-   //page_number--;
- }
-
-  // Disable the "Previous" button if on the first page
-  if (page_number == 0) {
-    document.getElementById('action6').disabled = true;
-  } else {
-    document.getElementById('action6').disabled = false;
+  //automatically saving current page
+  pages[page_number]=cntx.getImageData(0,0,canv.width,canv.height);
+  pages_pdf[page_number] = canv.toDataURL('image/jpeg',1.0);
+  //settng up condition for first page error
+  if(page_number>=1){
+    page_number--;
   }
-
-  // Clear the canvas before drawing the text
-  var canvas = document.getElementById("canvas1");
-  var context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Set font style and color
-  context.font = "20px Arial";
-  context.fillStyle = "black";
-
-  // Display current and total page numbers
-  //document.getElementById('action5').disabled = true;
-  context.fillText((page_number-- ) + "/" + pages.length, 1310, 30);
-
-  // Draw the page content on the canvas
-  cntx.putImageData(pages[page_number], 0, 0);
+  else{
+    alert("This is the first page. You can't back");
+	//document.getElementById('action6').disabled=true;
+    return;
+  }
+  if (page_number==0) {
+    //document.getElementById('action6').disabled=true;
+  }
+  cntx.putImageData(pages[page_number],0,0);
+  //document.getElementById('action5').innerHTML="";
   document.getElementById('action5').innerHTML="Next Page";
+  
+  
+  
+  console.log( "total page", pages.length);
+    var canvas = document.getElementById("canvas1");
+  var context = canvas.getContext("2d");
+    var totalpage= pages.length-1;
 
+  var mytext= document.getElementById("demo3").innerHTML = totalpage;
+
+ context.font = "bold 18px Verdana,sans-serif";
+  context.fillStyle = "green";
+ // context.strokeStyle = "red";
+  
+  context.strokeStyle = '#BADA55';
+
+
+context.fillRect(10, 10, 100, 100);
+
+
+  context.fillText(mytext, 1310, 30);
+   //context.fillText('<p id="demo2"></p> /<p id="demo3"></p>' 1310, 50);
 }
-
-// Rest of your code...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //for page functionality end
 
 //image download
