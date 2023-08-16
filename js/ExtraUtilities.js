@@ -108,7 +108,7 @@ function previous_page() {
   context.strokeStyle = '#BADA55';
 
 
-context.fillRect(10, 10, 100, 100);
+
 
 
   context.fillText(mytext, 1310, 30);
