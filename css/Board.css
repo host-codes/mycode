@@ -95,10 +95,11 @@ h6{
   padding-bottom: 10px;
 }
 
-#toolproperties{
-  width: 100%;
-  float: left;
-  margin: 1% 1%;
+#toolproperties {
+    width: 100%;
+    float: left;
+    margin: 2% 2%;
+    height: 19%;
 }
 
 #linkholder{
