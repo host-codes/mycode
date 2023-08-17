@@ -64,7 +64,7 @@ async function stop_recording() {
     var vidblob = recorder.getBlob();
     //document.getElementById('testv').src = URL.createObjectURL(blob);
     //document.getElementById('testv').parentNode.style.display = 'block';
-    invokeSaveAsDialog(vidblob,"On-Board.webm");
+    invokeSaveAsDialog(vidblob,"Chemi_learn.mp4");
   });
 
   //to stop the tracks, ensuring that the user is asked permissions each time recording is started
