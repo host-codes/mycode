@@ -1,5 +1,5 @@
 var xmlhttp = new XMLHttpRequest();
-var url = "https://script.google.com/macros/s/AKfycbweEErqtIYDNhbt4SDPzS4E-Z-YBD7tHzxU7x0Z7oeDHbNBF5sroBjCN0xACnCbY_TX/exec";
+var url = "https://script.google.com/macros/s/AKfycbxFWLAjEfbIEm8uMP1s5QKxx4VkaBa96V1aoE-8DmRkB5BnR54Q50nBv04l0YCUgsOP/exec";
 
 xmlhttp.open("GET",url,true);
 xmlhttp.send();
