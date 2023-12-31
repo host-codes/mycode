@@ -1,7 +1,5 @@
 var xmlhttp = new XMLHttpRequest();
-//var url = "http://localhost/bar-chart/js/jsonData.json";
-
-var url = "https://script.google.com/macros/s/AKfycbzMDqf29SeBwQFnvMz2l-VaeSM65y-qlS0XwIDLYwF0vxMatUMdPGzfJT5j7NJ2odz_tg/exec";
+var url = "https://script.google.com/macros/s/AKfycbxFWLAjEfbIEm8uMP1s5QKxx4VkaBa96V1aoE-8DmRkB5BnR54Q50nBv04l0YCUgsOP/exec";
 
 xmlhttp.open("GET",url,true);
 xmlhttp.send();
@@ -9,11 +7,11 @@ xmlhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
         var data = JSON.parse(this.responseText);
         //console.log(data)
-        Months = data.user.map(function(elem){
-            return elem.Months;
+        FEE_paid_due_month = data.user.map(function(elem){
+            return elem.FEE_paid_due_month;
         })
-        Months_count = data.user.map(function(elem){
-            return elem.Months_count;
+        Month_total_Due = data.user.map(function(elem){
+            return elem.Month_total_Due;
         })
         //console.log(population)
         const ctx = document.getElementById('myChartline').getContext('2d');
@@ -30,16 +28,16 @@ xmlhttp.onreadystatechange = function(){
 		  data: {
     // Data Labels
    // labels: ["Python", "JavaScript", "PHP", "Java", "C#", "C++"],
-      labels: Months,
+      labels: FEE_paid_due_month,
     datasets: [{
       // Data Set 1
       
         //  Chart Label
         //label: "Programming Languages",
-          label: 'Total Day Of Subject',
+          label: 'IN MONTH TOTAL DUE',
         // Actual Data
         //data: [13, 15, 1, 10, 9, 10],
-        data: Months_count,
+        data: Month_total_Due,
         // Background Color
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -144,22 +142,6 @@ xmlhttp.onreadystatechange = function(){
 			   
 			   
             }	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
