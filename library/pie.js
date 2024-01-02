@@ -3,7 +3,7 @@ var xmlhttp = new XMLHttpRequest();
 
 //var url = "https://script.google.com/macros/s/AKfycbzMDqf29SeBwQFnvMz2l-VaeSM65y-qlS0XwIDLYwF0vxMatUMdPGzfJT5j7NJ2odz_tg/exec";
 
-var url = "https://script.google.com/macros/s/AKfycbxFWLAjEfbIEm8uMP1s5QKxx4VkaBa96V1aoE-8DmRkB5BnR54Q50nBv04l0YCUgsOP/exec";
+var url = "https://script.google.com/macros/s/AKfycbwOH0tfJ7Xy8ygyJhv5JbV3hyHEwhlwEAvQQwbK7qWXUfXtM6lYoRUF6P7MVsqsrwXP/exec";
 
 
 xmlhttp.open("GET",url,true);
